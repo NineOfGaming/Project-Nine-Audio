@@ -3,17 +3,21 @@
 	<head>
 		<title>Project Nine Audio</title>
 	</head>
-	<body>		
-			<header id="header">
-				<div class="inner">
-					<a href="index.html" class="logo">Tony Teaches Tech</a>
-					<nav id="nav">
-						<a href="index.html">Like</a>
-						<a href="generic.html">Comment</a>
-						<a href="elements.html">Subscribe</a>
-					</nav>
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
-			</header>
+	<body>
+	    <p>Demo Music From <a href="http://incompetech.com">incompetech.com</a></p>
+	    <audio src="" controls id="audioPlayer">
+	        Sorry, your browser doesn't support html5!
+	    </audio>
+	    <ul id="playlist">
+	        <li class="current-song"><a href="Exit%20the%20Premises.mp3">Exit the Premises</a></li>
+	        <li><a href="Severe%20Tire%20Damage.mp3">Severe Tire Damage</a></li>
+  	      <li><a href="Broken%20Reality.mp3">Broken Reality</a></li>
+  	  </ul>
+ 	   <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  	  <script src="audioPlayer.js"></script>
+  	  <script>
+   	     // loads the audio player
+  	      audioPlayer();
+  	  </script>
 	</body>
 </html>

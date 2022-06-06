@@ -74,5 +74,10 @@
     <div id="overlay" onclick="overlayOff()">
       <div id="overlayText"><p><b>Click to allow audio.</b></p></div>
     </div>
-  </body>
+	<script>
+	function overlayOff() {
+	  document.getElementById("overlay").innerHTML = "YOU CLICKED ME!";
+	}
+	</script>
+	</body>
 </html>

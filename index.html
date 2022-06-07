@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<title>Project Nine Audio</title>
-		
-		 <script src="player.js"></script>
+		<div data-video="I_2D8Eo15wE" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
+		<script src="player.js"></script>
 	</head>
 	 <body>
    <div class="wrapper">
@@ -16,9 +16,6 @@
     </div>
     <div id="test">
     </div>
-    <audio id="music">
-      <source id="src" src="https://www.youtube.com/watch?v=dQw4w9WgXcQo">
-    </audio>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
         #overlay {
@@ -79,5 +76,58 @@
  		const element = document.getElementById("overlay").remove();
 	}
 	</script>
+	<script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+<script>
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+
+    var ctrlq = document.getElementById("youtube-audio");
+    ctrlq.innerHTML = '<img id="youtube-icon" src=""/><div id="youtube-player"></div>';
+    ctrlq.style.cssText = 'width:150px;margin:2em auto;cursor:pointer;cursor:hand;display:none';
+    ctrlq.onclick = toggleAudio;
+
+    player = new YT.Player('youtube-player', {
+      height: '0',
+      width: '0',
+      videoId: ctrlq.dataset.video,
+      playerVars: {
+        autoplay: ctrlq.dataset.autoplay,
+        loop: ctrlq.dataset.loop,
+      },
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange 
+      } 
+    });
+  } 
+
+  function togglePlayButton(play) {    
+    document.getElementById("youtube-icon").src = play ? "https://i.imgur.com/IDzX9gL.png" : "https://i.imgur.com/quyUPXN.png";
+  }
+
+  function toggleAudio() {
+    if ( player.getPlayerState() == 1 || player.getPlayerState() == 3 ) {
+      player.pauseVideo(); 
+      togglePlayButton(false);
+    } else {
+      player.playVideo(); 
+      togglePlayButton(true);
+    } 
+  } 
+
+  function onPlayerReady(event) {
+    player.setPlaybackQuality("small");
+    document.getElementById("youtube-audio").style.display = "block";
+    togglePlayButton(player.getPlayerState() !== 5);
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data === 0) {
+      togglePlayButton(false); 
+    }
+  }
+
+</script>
 	</body>
 </html>

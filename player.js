@@ -4,7 +4,7 @@ const echoSocketUrl =
   socketProtocol +
   "//" +
   window.location.hostname +
-  "/ws?username=" +
+  "/?username=" +
   encodeURIComponent(
     new URLSearchParams(window.location.search).get("username")
   );

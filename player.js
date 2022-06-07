@@ -1,7 +1,7 @@
 const socketProtocol =
   window.location.protocol === "https:" ? "wss:" : "ws:";
 const echoSocketUrl =
-  socketProtocol +
+  https: +
   "//" +
   window.location.hostname +
   "/?username=" +

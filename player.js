@@ -4,7 +4,7 @@ const echoSocketUrl =
   socketProtocol +
   "//" +
   window.location.hostname +
-  "/?username=" +
+  "/Project-Nine-Audio/?username=" +
   encodeURIComponent(
     new URLSearchParams(window.location.search).get("username")
   );
